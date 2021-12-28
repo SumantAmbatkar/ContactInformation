@@ -6,13 +6,11 @@ namespace ContactInformation.Controllers
 {
     public class ContactsController : Controller
     {
-
         private IContactService _service;
-
+        
         public ContactsController()
         {
             _service = new ContactService(new ModelStateWrapper(this.ModelState));
-
         }
 
         public ContactsController(IContactService service)
@@ -32,7 +30,6 @@ namespace ContactInformation.Controllers
             return View();
         }
 
-        //
         // POST: /Home/Create
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -50,7 +47,6 @@ namespace ContactInformation.Controllers
             return View(_service.GetContact(id));
         }
 
-        //
         // POST: /Home/Edit/5
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -61,7 +57,6 @@ namespace ContactInformation.Controllers
             return View();
         }
 
-        //
         // GET: /Home/Delete/5
 
         public ActionResult Delete(int id)
@@ -69,7 +64,6 @@ namespace ContactInformation.Controllers
             return View(_service.GetContact(id));
         }
 
-        //
         // POST: /Home/Delete/5
 
         [AcceptVerbs(HttpVerbs.Post)]
